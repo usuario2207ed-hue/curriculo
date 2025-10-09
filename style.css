@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #222;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #f5f7fa;
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 2px solid #e2e8f0;
+  animation: fadeSlideDown 1.2s ease;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  color: #1e293b;
+}
+
+header p {
+  color: #475569;
+  font-size: 1em;
+  margin: 5px 0;
+}
+
+/* Botão LinkedIn com animação */
+.linkedin-button {
+  display: inline-block;
+  margin-top: 12px;
+  background-color: #0a66c2;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  animation: pulseLinkedin 2.5s infinite;
+  box-shadow: 0 0 0 rgba(10, 102, 194, 0.4);
+}
+
+.linkedin-button:hover {
+  background-color: #004182;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(10, 102, 194, 0.5);
+}
+
+@keyframes pulseLinkedin {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(10, 102, 194, 0.4);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 15px rgba(10, 102, 194, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(10, 102, 194, 0.4);
+  }
+}
+
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  flex: 1;
+}
+
+section {
+  margin-bottom: 35px;
+}
+
+section h2 {
+  border-bottom: 2px solid #0ea5e9;
+  padding-bottom: 5px;
+  color: #0f172a;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+.job, .education {
+  margin-bottom: 15px;
+}
+
+.job h3, .education h3 {
+  margin: 0;
+  font-size: 1.1em;
+  color: #1e293b;
+}
+
+.job span, .education span {
+  color: #64748b;
+  font-size: 0.9em;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+/* Rodapé aparece apenas ao final da rolagem */
+footer {
+  background-color: #f5f7fa;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9em;
+  color: #475569;
+  border-top: 1px solid #e2e8f0;
+  position: fixed;
+  bottom: -80px;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.6s ease;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+}
+
+footer.visible {
+  bottom: 0;
+  opacity: 1;
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  header h1 { font-size: 1.6em; }
+  main { padding: 0 10px; }
+  section h2 { font-size: 1.1em; }
+  .linkedin-button { font-size: 0.9em; padding: 10px 18px; }
+}

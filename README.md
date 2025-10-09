@@ -2,7 +2,7 @@
 
 Este projeto é um currículo online do profissional, desenvolvido para ser responsivo, ou seja, se adapta a telas de computadores, tablets e celulares.
 
-   👉 
+   👉 https://usuario2207ed-hue.github.io/curriculo/
 
 Objetivo
 

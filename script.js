@@ -17,3 +17,15 @@ window.addEventListener('scroll', function () {
     footer.classList.remove('visible');
   }
 });
+
+// --- Popup ---
+window.addEventListener('load', () => {
+  const popup = document.getElementById('popup');
+  const btnCurriculo = document.getElementById('btnCurriculo');
+
+  popup.style.display = 'flex'; // exibe o popup automaticamente
+
+  btnCurriculo.addEventListener('click', () => {
+    popup.style.display = 'none'; // fecha o popup
+  });
+});

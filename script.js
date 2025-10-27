@@ -1,62 +1,34 @@
-function speakResume() {
-  if ('speechSynthesis' in window) {
-    const text = document.body.innerText.trim();
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = 'pt-BR';
-    speechSynthesis.speak(utter);
-  }
-}
-
-window.addEventListener('scroll', function () {
-  const footer = document.getElementById('footer');
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
-    footer.classList.add('visible');
-  } else {
-    footer.classList.remove('visible');
-  }
-});
-
 window.addEventListener('load', () => {
   const popup = document.getElementById('popup');
   const btnCurriculo = document.getElementById('btnCurriculo');
-  popup.style.display = 'flex';
+  const btnDownload = document.getElementById('btnDownload');
+  const SEEN_POPUP_KEY = 'popupShown';
+
+  const hasSeenPopup = localStorage.getItem(SEEN_POPUP_KEY);
+  if (!hasSeenPopup) {
+    popup.style.display = 'flex';
+  }
+
   btnCurriculo.addEventListener('click', () => {
     popup.style.display = 'none';
+    localStorage.setItem(SEEN_POPUP_KEY, 'true');
   });
 
-  const NOTIF_KEY = 'lastNotification';
-  const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
-  const now = Date.now();
-  const last = localStorage.getItem(NOTIF_KEY);
-
-  function showNotification() {
-    if (Notification.permission === 'granted') {
-      new Notification('Mensagem de Edmilson', {
-        body: 'Olá tudo bem? Só passando para desejar um ótimo dia! Lembrando que estou à disposição. Abraço!',
-        icon: 'https://cdn-icons-png.flaticon.com/512/1250/1250615.png'
-      });
-      localStorage.setItem(NOTIF_KEY, now);
-    }
-  }
-
-  if (Notification.permission === 'default') {
-    Notification.requestPermission().then(permission => {
-      if (permission === 'granted') showNotification();
-    });
-  } else if (Notification.permission === 'granted') {
-    if (!last || now - last > THIRTY_DAYS) {
-      showNotification();
-    }
-  }
-
-  const DOWNLOAD_KEY = 'pdfDownloaded';
-  if (!localStorage.getItem(DOWNLOAD_KEY)) {
+  btnDownload.addEventListener('click', () => {
     const link = document.createElement('a');
-    link.href = 'Edmilson_Charif_Tecnico_de_Produção.pdf';
-    link.download = 'Edmilson_Charif_Tecnico_de_Produção.pdf';
+    link.href = 'Edmilson_Charif_Tecnico_de_Producao.pdf';
+    link.download = 'Edmilson_Charif_Tecnico_de_Producao.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    localStorage.setItem(DOWNLOAD_KEY, 'true');
-  }
+  });
+
+  window.addEventListener('scroll', () => {
+    const footer = document.getElementById('footer');
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+      footer.classList.add('visible');
+    } else {
+      footer.classList.remove('visible');
+    }
+  });
 });

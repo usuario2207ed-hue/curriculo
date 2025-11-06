@@ -205,3 +205,139 @@ footer.visible {
   main { padding: 0 10px; }
   section h2 { font-size: 1.1em; }
 }
+
+
+.file-dock {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  z-index: 10050;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: grab;
+  user-select: none;
+}
+
+
+.dock-handle {
+  background: linear-gradient(180deg, #ffffff, #f3f4f6);
+  border: 1px solid rgba(15,23,42,0.08);
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #0f172a;
+  transition: transform 0.16s ease, box-shadow 0.16s;
+  outline: none;
+}
+
+
+.file-dock:hover .dock-handle {
+  transform: scale(1.02);
+  box-shadow: 0 8px 22px rgba(2,6,23,0.09);
+}
+
+.dock-content {
+  overflow: hidden;
+  max-height: 0;
+  width: 260px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e6eef6;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.06);
+  transition: max-height 0.32s ease, padding 0.25s ease;
+  padding: 0;
+}
+
+
+.file-dock:hover .dock-content {
+  max-height: 520px; 
+  padding: 12px;
+}
+
+
+.dock-content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dock-content li {
+  margin-bottom: 8px;
+}
+
+.file-item {
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95em;
+  color: #0f172a;
+  transition: background 0.18s, transform 0.12s;
+}
+
+.file-item:hover {
+  background: rgba(14,165,233,0.06);
+  transform: translateX(4px);
+}
+
+
+.file-viewer-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8,12,20,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10100;
+  padding: 20px;
+}
+
+.file-viewer-overlay.show {
+  display: flex;
+}
+
+.file-viewer-content {
+  background: #fff;
+  border-radius: 10px;
+  max-width: 1100px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+  padding: 14px;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.2);
+}
+
+.close-viewer {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.3em;
+  cursor: pointer;
+  color: #334155;
+}
+
+.file-viewer-body img,
+.file-viewer-body video,
+.file-viewer-body iframe {
+  max-width: 100%;
+  max-height: calc(90vh - 80px);
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .file-dock { left: 12px; top: 12px; }
+  .dock-content { width: 200px; }
+}

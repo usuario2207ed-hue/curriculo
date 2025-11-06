@@ -28,6 +28,30 @@
     </div>
   </div>
 
+  <div id="fileDock" class="file-dock" title="Abrir arquivos">
+    <button id="dockHandle" class="dock-handle" aria-label="Abrir lista de arquivos">• • •</button>
+    <div id="dockContent" class="dock-content" aria-hidden="true">
+      <ul>
+        <li><button class="file-item" data-file="CERTIFICADO GESTÇAO DE ESTRATÉGIA E DE FERRAMENTAS DA QUALIDADE.pdf.pdf">1 — Gestão Estratégia & Ferramentas</button></li>
+        <li><button class="file-item" data-file="CERTIFICADO AUDITORIA DE SISTEMA DA QUALIDADE.pdf.pdf" title="CERTIFICADO AUDITORIA DE SISTEMA DA QUALIDADE.pdf.pdf">2 — Auditoria de Sistema</button></li>
+        <li><button class="file-item" data-file="CERTIFICADO RACIOCÍNIO LÓGICO, CRÍTICO E ANALÍTICO.pdf.pdf" title="CERTIFICADO RACIOCÍNIO LÓGICO, CRÍTICO E ANALÍTICO.pdf.pdf">3 — Raciocínio Lógico</button></li>
+        <li><button class="file-item" data-file="Diploma.pdf" title="Diploma.pdf">4 — Gestão da Qualidade</button></li>
+        <li><button class="file-item" data-file="CERTIFICADO COMUNICAÇÃO E LIDERANÇA.pdf.pdf" title="CERTIFICADO COMUNICAÇÃO E LIDERANÇA.pdf.pdf">5 — Comunicação & Liderança</button></li>
+        <li><button class="file-item" data-file="Official_Certification_Issued_Lean_Six_Sigma_Green_Belt_Certification_Standard.pdf.pdf" title="Official_Certification_Issued_Lean_Six_Sigma_Green_Belt_Certification_Standard.pdf.pdf">6 — Lean Six Sigma (Green Belt)</button></li>
+        <li><button class="file-item" data-file="CERTIFICADO GESTÃO DE PROJETOS DE QUALIDADE.pdf.pdf" title="CERTIFICADO GESTÃO DE PROJETOS DE QUALIDADE.pdf.pdf">7 — Gestão de Projetos</button></li>
+        <li><button class="file-item" data-file="Atividades.jpeg" title="Atividades.jpeg">8 — Atividades</button></li>
+        <li><button class="file-item" data-file="https://1drv.ms/v/c/9f5bfbccbe37ab4b/EU_Bh0lR3iZHljWc3Re3h3EBhylGgkJ1wuED0uhNiPBang?e=09fQFX&download=1" title="Vídeo">9 — Vídeo</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="fileViewerOverlay" class="file-viewer-overlay" aria-hidden="true">
+    <div class="file-viewer-content">
+      <button id="closeFileViewer" class="close-viewer" title="Fechar">✕</button>
+      <div id="fileViewerBody" class="file-viewer-body"></div>
+    </div>
+  </div>
+
   <header>
     <div class="header-container">
       <div class="header-content">
@@ -156,4 +180,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
